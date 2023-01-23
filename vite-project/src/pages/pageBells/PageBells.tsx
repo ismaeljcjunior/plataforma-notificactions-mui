@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Box, Button, Card, DialogActions, CardContent, CardMedia, Dialog, DialogContent, DialogContentText, DialogTitle, Grid, Typography, CardActionArea } from '@mui/material'
+import { Box, Button, Card, DialogActions, CardContent, CardMedia, Dialog, DialogContent, DialogContentText, DialogTitle, Grid, Typography, CardActionArea, Tooltip } from '@mui/material'
 import { GreenBell } from '../../components/bells/GreenBell'
 import { RedBell } from '../../components/bells/RedBell'
 import { YellowBell } from '../../components/bells/YellowBell'
@@ -47,39 +47,30 @@ export const PageBells = () => {
         </Marquee>
         <Grid container spacing={3} justifyContent='center' >
           <Grid item xs={3} md={2.4} lg={2}>
-            <Card sx={{ maxWidth: 345, backgroundColor: 'transparent', border: "none", boxShadow: "none" }} >
-              <CardActionArea
-                component={Button}
-                onClick={handleClickOpen}
+            <Card onClick={handleClickOpen} sx={{ maxWidth: 345, backgroundColor: 'transparent', border: "none", boxShadow: "none" }} >
+              <GreenBell />
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
               >
-                <GreenBell />
+                <DialogTitle id="alert-dialog-title">
+                  {"Use Google's location service?"}
+                </DialogTitle>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-description">
+                    testes tes tes tes tse el tesasd
+                  </DialogContentText>
+                </DialogContent>
 
-                <Dialog
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="alert-dialog-title"
-                  aria-describedby="alert-dialog-description"
-                >
-                  <DialogTitle id="alert-dialog-title">
-                    {"Use Google's location service?"}
-                  </DialogTitle>
-                  <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                      testes tes tes tes tse el tesasd
-                    </DialogContentText>
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={() => handleClose()}>Fechar</Button>
 
-                  </DialogActions>
-                </Dialog>
-                <CardContent >
-                  <Typography textAlign='center' gutterBottom variant="h5" >
-                    Nome sino
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-
+              </Dialog>
+              <CardContent >
+                <Typography textAlign='center' gutterBottom variant="h5" >
+                  Nome sino
+                </Typography>
+              </CardContent>
             </Card>
           </Grid>
         </Grid>
