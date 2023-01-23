@@ -18,7 +18,9 @@ export const PageBells = () => {
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setOpen(false)
+    console.log('handleClick', open)
+
   };
   useEffect(() => {
     axios.get(`http://devnewline.dyndns.org:3007/api_notifications`)
@@ -46,7 +48,10 @@ export const PageBells = () => {
         <Grid container spacing={3} justifyContent='center' >
           <Grid item xs={3} md={2.4} lg={2}>
             <Card sx={{ maxWidth: 345, backgroundColor: 'transparent', border: "none", boxShadow: "none" }} >
-              <CardActionArea onClick={handleClickOpen}>
+              <CardActionArea
+                component={Button}
+                onClick={handleClickOpen}
+              >
                 <GreenBell />
 
                 <Dialog
@@ -60,26 +65,23 @@ export const PageBells = () => {
                   </DialogTitle>
                   <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                      testes tes tes tes tse el tesasd 
+                      testes tes tes tes tse el tesasd
                     </DialogContentText>
                   </DialogContent>
                   <DialogActions>
-                    <Button onClick={handleClose}>Disagree</Button>
-                    <Button onClick={handleClose} autoFocus>
-                      Agree
-                    </Button>
+                    <Button onClick={() => handleClose()}>Fechar</Button>
+
                   </DialogActions>
                 </Dialog>
                 <CardContent >
                   <Typography textAlign='center' gutterBottom variant="h5" >
                     Nome sino
                   </Typography>
-
                 </CardContent>
               </CardActionArea>
+
             </Card>
           </Grid>
-
         </Grid>
       </Box>
     </Box >
