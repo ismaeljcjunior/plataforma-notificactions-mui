@@ -13,9 +13,15 @@ export const MarqueeComp = () => {
     });
 
     return (
-        <Typography textAlign='center' gutterBottom variant="h3" component="div">
-            PLATAFORMA DE NOTIFICAMENTO {date.toLocaleTimeString()}  {date.toLocaleDateString()}
-
+        <Typography sx={{
+            fontSize: {
+                lg: 40,
+                md: 30,
+                sm: 25,
+                xs: 15
+            }
+        }} textAlign='center' gutterBottom variant="h3" component="div">
+            Plataforma de Notificações {date.toLocaleTimeString()}  {date.toLocaleDateString()}
         </Typography>
     )
 }
