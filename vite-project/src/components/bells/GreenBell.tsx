@@ -42,8 +42,8 @@ export const GreenBell = () => {
     }
 
     const defaultOptions = {
-        loop: true,
-        autoplay: true,
+        loop: false,
+        autoplay: false,
         animationData: bellAlert,
     }
     return (
@@ -52,7 +52,7 @@ export const GreenBell = () => {
                 options={defaultOptions}
                 width={Width} height={Height}
                 // width={150} height={150}
-                
+                isClickToPauseDisabled={true}
 
             />
         </Box >
